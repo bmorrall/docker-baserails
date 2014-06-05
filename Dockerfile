@@ -26,3 +26,6 @@ RUN adduser --disabled-password --gecos "" ruby
 # Create the apps directory
 RUN mkdir /apps
 RUN chown -R ruby:ruby /apps
+
+# Run as ruby user
+RUN su ruby

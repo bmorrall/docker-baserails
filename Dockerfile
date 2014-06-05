@@ -18,10 +18,6 @@ RUN apt-get install -y nodejs
 RUN apt-get install -y nodejs-legacy
 RUN apt-get install -y npm
 
-# set WORKDIR
-RUN mkdir -p /apps/please-ignore
-WORKDIR /apps/please-ignore/current
-
 # Run app as ruby user
 # RUN addgroup --system ruby
 # RUN adduser --system --no-create-home --ingroup railsapps pleaseignore

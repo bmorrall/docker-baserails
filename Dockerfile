@@ -29,7 +29,3 @@ RUN chown -R ruby:ruby /apps
 RUN chown -R ruby:ruby /usr/local/
 RUN chown -R ruby:ruby /usr/lib/
 RUN chown -R ruby:ruby /usr/bin/
-
-# Run as ruby user
-RUN su ruby
-

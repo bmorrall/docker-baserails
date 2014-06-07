@@ -7,6 +7,8 @@ export RUBY_VERSION=2.1.2
 
 cd /tmp
 
+apt-get update
+
 wget -O ruby-install-$RUBY_INSTALL_VERSION.tar.gz \
   https://github.com/postmodern/ruby-install/archive/v$RUBY_INSTALL_VERSION.tar.gz
 tar -xzf ruby-install-$RUBY_INSTALL_VERSION.tar.gz

@@ -1,7 +1,7 @@
 # Dockerfile for a Rails application using Nginx and Unicorn
 
 # Select ubuntu as the base image
-FROM dockerfile/ubuntu
+FROM dockerfile/nginx
 
 # Install Ruby
 ADD install_ruby.sh /tmp/
@@ -11,21 +11,23 @@ RUN gem install bundler --no-ri --no-rdoc
 
 # Install dependencies.
 RUN apt-get update
-RUN apt-get install -y libpq-dev
-
-# Install npm
-RUN apt-get install -y nodejs
-RUN apt-get install -y nodejs-legacy
-RUN apt-get install -y npm
+RUN apt-get install -y \
+  libpq-dev \
+  nodejs \
+  nodejs-legacy \
+  npm
 
 # Run app as ruby user
-# RUN addgroup --system ruby
-# RUN adduser --system --no-create-home --ingroup railsapps pleaseignore
-RUN adduser --disabled-password --gecos "" ruby
+RUN addgroup --system rails
+RUN adduser --system --no-create-home --ingroup rails rails
+# RUN adduser --disabled-password --gecos "" ruby
 
 # Create the apps directory
 RUN mkdir /apps
-RUN chown -R ruby:ruby /apps
-RUN chown -R ruby:ruby /usr/local/
-RUN chown -R ruby:ruby /usr/lib/
-RUN chown -R ruby:ruby /usr/bin/
+RUN chown -R ruby:ruby \
+  /apps
+  /usr/local/
+  /usr/lib/
+  /usr/bin/
+
+COMMAND ["nginx"]

@@ -20,11 +20,11 @@ RUN apt-get install -y \
 # Run app as ruby user
 RUN addgroup --system rails
 RUN adduser --system --no-create-home --ingroup rails rails
-# RUN adduser --disabled-password --gecos "" ruby
+# RUN adduser --disabled-password --gecos "" rails
 
 # Create the apps directory
 RUN mkdir /apps
-RUN chown -R ruby:ruby \
+RUN chown -R rails:rails \
   /apps
   /usr/local/
   /usr/lib/

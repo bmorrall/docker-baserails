@@ -2,6 +2,7 @@
 
 # Select ubuntu as the base image
 FROM dockerfile/nginx
+MAINTAINER Ben Morrall <bemo56@hotmail.com>
 
 # Install Ruby
 ADD install_ruby.sh /tmp/

@@ -25,9 +25,9 @@ RUN adduser --system --no-create-home --ingroup rails rails
 # Create the apps directory
 RUN mkdir /apps
 RUN chown -R rails:rails \
-  /apps
-  /usr/local/
-  /usr/lib/
+  /apps \
+  /usr/local/ \
+  /usr/lib/ \
   /usr/bin/
 
 COMMAND ["nginx"]
